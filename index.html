@@ -1,1 +1,187 @@
-default
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Retirement Fund Calculator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Retirement Fund Calculator">
+  <meta name="author" content="Geoff Chia">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Retirement Fund Calculator</h1>
+    <h2>How much do you need?</h2>
+    <p>Geoff Chia<br/>Financial Planner</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>You worked hard all your life and you are about to retire and enjoy life</li>
+<li>But have you got enough nest egg to last your retirement years?</li>
+<li>A question that is not easily answered if you do not have the right financial knowledge</li>
+<li>Luckily in the current internet era, the answer is right at your fingertips</li>
+</ul>
+
+<p><img src="nestegg.jpg" alt="nestegg"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Introducing Retirement Fund Calculator</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>You can assess the Retirement Fund Calculator <a href="https://geoffchia.shinyapps.io/Project/">here</a></li>
+<li>The following is a screenshot of the Retirement Fund Calculator</li>
+</ul>
+
+<p><img src="screen.png" alt="Screenshot" style="width: 600px;"/></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Input Variables and Formula</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>There are 3 input variables
+
+<ul>
+<li>Yearly income you require (default: $12,000)</li>
+<li>Number of years to receive the income (default: 25 years)</li>
+<li>Investment return (% per year) of your fund (default: 5%)</li>
+</ul></li>
+<li>With the default input variables, the retirement fund required is $169,127</li>
+<li>The calculations are carried out using the following well known financial formula:</li>
+</ul>
+
+<p>\(Fund = Income * \frac{1 - v^n}{rate}\)</p>
+
+<p>where:<br>
+  n = number of years<br>
+  rate = investment return<br>
+  \(v = \frac{1}{1 + rate}\)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Checking the Calculations using R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Using the default input variables, R produces the following answer which is the same as the default answer by the shiny app</li>
+</ul>
+
+<pre><code class="r">income &lt;- 12000  
+rate &lt;- .05  
+n &lt;- 25  
+v &lt;- 1 / (1 + rate)  
+fund &lt;- income * (1 - v ^ n) / rate
+print(fund)
+</code></pre>
+
+<pre><code>## [1] 169127
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Introducing Retirement Fund Calculator'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Input Variables and Formula'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Checking the Calculations using R'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
